@@ -13,14 +13,14 @@ test.describe("RFEC Academy Landing Page", () => {
     await expect(srText).toHaveText("Academy");
   });
 
-  test("should have FuzzyText component for title", async ({ page }) => {
-    // Check for FuzzyText by looking for the canvas element in h1
-    const fuzzyText = page.locator("h1 canvas");
-    await expect(fuzzyText).toBeVisible();
+  test("should have ASCIIText component for title", async ({ page }) => {
+    // Check for ASCIIText by looking for the ascii-text-container
+    const asciiText = page.locator(".ascii-text-container");
+    await expect(asciiText).toBeVisible();
   });
 
   test("should display the tagline", async ({ page }) => {
-    const tagline = page.getByText("Acelere sua carreira em desenvolvimento");
+    const tagline = page.getByText("Projeto de mentoria da comunidade RFEC");
     await expect(tagline).toBeVisible();
   });
 
@@ -34,14 +34,6 @@ test.describe("RFEC Academy Landing Page", () => {
       "A data de início e o número de vagas ainda serão divulgados.",
     );
     await expect(disclaimer).toBeVisible();
-  });
-
-  test("should have StarBorder component present", async ({ page }) => {
-    // Check for StarBorder by looking for the animation classes
-    const starBorder = page.locator(
-      ".animate-star-movement-bottom, .animate-star-movement-top",
-    );
-    await expect(starBorder.first()).toBeVisible();
   });
 
   test("should have DotGrid component present", async ({ page }) => {

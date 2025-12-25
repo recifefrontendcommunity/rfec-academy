@@ -137,79 +137,16 @@ code {
   }
 }
 
-/* StarBorder animations */
-@keyframes star-movement-bottom {
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-100%, 0%);
-    opacity: 0;
-  }
-}
-
-@keyframes star-movement-top {
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(100%, 0%);
-    opacity: 0;
-  }
-}
-
-.animate-star-movement-bottom {
-  animation: star-movement-bottom linear infinite alternate;
-}
-
-.animate-star-movement-top {
-  animation: star-movement-top linear infinite alternate;
-}
-
-/* Landing page specific styles */
-/* Override StarBorder inner background to match design */
-.landing-page-starborder .relative.z-10 {
-  background: #151515 !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* StarBorder button wrapper - make inner div transparent */
-.button-starborder .relative.z-10 {
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-}
-
 /* Mobile responsive fixes */
 @media (max-width: 640px) {
   /* Prevent horizontal overflow */
   body {
     overflow-x: hidden;
   }
-
-  /* Ensure FuzzyText canvas scales properly on mobile */
-  h1 canvas {
-    max-width: 100% !important;
-    width: auto !important;
-    height: auto !important;
-  }
-
-  /* Ensure FuzzyText container doesn't overflow */
-  h1 > div {
-    max-width: 100% !important;
-    overflow: hidden;
-  }
 }
 
-/* Ensure FuzzyText doesn't overflow on any screen size */
+/* Ensure h1 doesn't overflow on any screen size */
 h1 {
   max-width: 100%;
   overflow: hidden;
-}
-
-h1 canvas {
-  max-width: 100%;
-  height: auto;
 }

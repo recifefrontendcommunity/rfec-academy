@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import StarBorder from "@/components/StarBorder";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import DotGrid from "@/components/DotGrid";
-import FuzzyText from "@/components/FuzzyText";
+import ASCIIText from "@/components/ASCIIText";
 import RFECLogo from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({ component: App });
 
@@ -12,7 +12,7 @@ const GOOGLE_FORM_URL = "";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#151515] flex items-center justify-center">
+    <div className="min-h-screen bg-[#151515] flex items-center justify-center p-0">
       {/* DotGrid background effect */}
       <div className="fixed inset-0 z-0">
         <DotGrid
@@ -31,7 +31,7 @@ function App() {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 md:px-8">
+      <div className="relative z-10 w-full mx-auto">
         <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 py-6 sm:py-8 md:py-10 lg:py-12 px-2 sm:px-4 md:px-8">
           {/* Logo */}
           <div className="w-full max-w-[140px] sm:max-w-[180px] md:max-w-[220px]">
@@ -39,39 +39,32 @@ function App() {
           </div>
 
           {/* Title */}
-          <h1 className="relative text-center w-full max-w-full overflow-hidden px-2">
+          <h1 className="relative text-center w-full max-w-full">
             <span className="sr-only">Academy</span>
-            <div className="w-full flex justify-center">
-              <FuzzyText
-                fontSize="clamp(3.5rem, 10vw, 7rem)"
-                fontWeight={900}
-                color="#FFFFFF"
-                enableHover={true}
-                baseIntensity={0.18}
-                hoverIntensity={0.5}
-              >
-                Academy
-              </FuzzyText>
+            <div className="w-full flex justify-center relative h-[100px] md:h-[200px]">
+              <ASCIIText
+                text="Academy"
+                textFontSize={200}
+                textColor="#FFFFFF"
+                asciiFontSize={4}
+                planeBaseHeight={20}
+                enableWaves={false}
+              />
             </div>
           </h1>
 
           {/* Tagline */}
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground text-center italic px-2 sm:px-4">
-            Acelere sua carreira em desenvolvimento
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 text-center font-light px-2 sm:px-4 max-w-2xl leading-relaxed">
+            Projeto de mentoria da comunidade RFEC
           </p>
 
-          {/* CTA Button */}
-          <StarBorder
-            as="div"
-            color="#2B7FFF"
-            speed="6s"
-            thickness={4}
-            className="inline-block button-starborder"
-          >
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <Button
               asChild
-              size="default"
-              className="bg-accent hover:bg-accent/90 text-foreground px-8 py-6 text-md font-normal border-0 rounded-2xl"
+              variant="outline"
+              size="lg"
+              className="bg-transparent border-[#2B7FFF] text-white hover:bg-[#2B7FFF]/20 hover:text-white hover:border-[#2B7FFF] text-sm sm:text-base font-normal rounded-xl"
             >
               <a
                 href={GOOGLE_FORM_URL || "#"}
@@ -82,19 +75,35 @@ function App() {
                     e.preventDefault();
                   }
                 }}
+                className="flex items-center gap-2"
               >
                 Inscreva-se
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </Button>
-          </StarBorder>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-800/50 hover:text-white hover:border-gray-500 text-sm sm:text-base font-normal rounded-xl"
+            >
+              <Link
+                to={"/saiba-mais" as any}
+                className="flex items-center gap-2"
+              >
+                Saiba mais
+              </Link>
+            </Button>
+          </div>
 
           {/* Disclaimer */}
           <p
-            className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 text-center max-w-md leading-relaxed px-2 sm:px-4"
+            className="text-xs sm:text-sm text-gray-400 text-center max-w-md leading-relaxed px-2 sm:px-4 mt-2"
             aria-label="A data de início e o número de vagas ainda serão divulgados"
             role="note"
           >
-            A data de início e o número de vagas ainda serão divulgados.
+            * A data de início e o número de vagas ainda serão divulgados.
           </p>
         </div>
       </div>

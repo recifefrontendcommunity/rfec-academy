@@ -18,6 +18,9 @@ const config = defineConfig({
     tanstackStart(),
     viteReact(),
   ],
+  server: {
+    allowedHosts: ["bernice-unweened-remedios.ngrok-free.dev"],
+  },
 });
 
 export default config;
