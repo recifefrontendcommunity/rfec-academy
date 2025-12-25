@@ -3,10 +3,10 @@
   "mode": "file-router",
   "typescript": true,
   "tailwind": true,
-  "packageManager": "pnpm",
+  "packageManager": "npm",
   "git": true,
   "addOnOptions": {},
   "version": 1,
-  "framework": "react-cra",
+  "framework": "vite",
   "chosenAddOns": ["start", "shadcn", "nitro"]
 }
