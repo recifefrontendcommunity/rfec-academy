@@ -18,11 +18,77 @@ export const Route = createRootRoute({
       {
         title: "RFEC Academy",
       },
+      {
+        name: "description",
+        content: "Projeto de mentoria da comunidade RFEC",
+      },
+      {
+        name: "theme-color",
+        content: "#151515",
+      },
+      // Open Graph / Facebook
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:title",
+        content: "RFEC Academy",
+      },
+      {
+        property: "og:description",
+        content: "Projeto de mentoria da comunidade RFEC",
+      },
+      {
+        property: "og:image",
+        content: "/og-academy.png",
+      },
+      // Twitter
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:title",
+        content: "RFEC Academy",
+      },
+      {
+        name: "twitter:description",
+        content: "Projeto de mentoria da comunidade RFEC",
+      },
+      {
+        name: "twitter:image",
+        content: "/og-academy.png",
+      },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "manifest",
+        href: "/manifest.json",
+      },
+      {
+        rel: "icon",
+        href: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        rel: "icon",
+        href: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        rel: "icon",
+        href: "/favicon-96x96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/apple-touch-icon.png",
       },
     ],
     scripts: GTM_ID
