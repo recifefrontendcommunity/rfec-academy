@@ -99,7 +99,7 @@ function App() {
 
           {/* Disclaimer */}
           <p
-            className="text-xs sm:text-sm text-gray-400 text-center max-w-md leading-relaxed px-2 sm:px-4 mt-2"
+            className="text-xs sm:text-sm text-gray-400 text-center max-w-md leading-relaxed px-2 sm:px-4 mb-0"
             aria-label="A data de início e o número de vagas ainda serão divulgados"
             role="note"
           >

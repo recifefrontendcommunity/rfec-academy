@@ -1,0 +1,59 @@
+---
+alwaysApply: true
+---
+
+# shadcn instructions
+
+Use the latest version of Shadcn to install new components, like this command to add a button component:
+
+```bash
+pnpm dlx shadcn@latest add button
+```
+
+# Conventional Commits
+
+When creating git commits, ALWAYS use the Conventional Commits specification format:
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+**Required format:**
+
+- **Type** (required): One of the following:
+  - `feat`: A new feature
+  - `fix`: A bug fix
+  - `docs`: Documentation only changes
+  - `style`: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc.)
+  - `refactor`: A code change that neither fixes a bug nor adds a feature
+  - `perf`: A code change that improves performance
+  - `test`: Adding missing tests or correcting existing tests
+  - `build`: Changes that affect the build system or external dependencies
+  - `ci`: Changes to CI configuration files and scripts
+  - `chore`: Other changes that don't modify src or test files
+  - `revert`: Reverts a previous commit
+
+- **Scope** (optional): The scope of the change (e.g., component name, module, or area)
+- **Subject** (required): A short, imperative description of the change (lowercase, no period)
+- **Body** (optional): A longer description explaining what and why
+- **Footer** (optional): Breaking changes or issue references
+
+**Examples:**
+
+- `feat(auth): add login functionality`
+- `fix(button): resolve hover state issue`
+- `docs(readme): update installation instructions`
+- `refactor(components): simplify button component logic`
+- `chore(deps): update dependencies to latest versions`
+
+**Rules:**
+
+- Always use lowercase for the subject
+- Use imperative mood ("add" not "added" or "adds")
+- No period at the end of the subject
+- Limit subject to 72 characters when possible
+- Separate subject from body with a blank line
