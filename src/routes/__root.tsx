@@ -3,7 +3,7 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 
 import appCss from "../styles.css?url";
-import { GTM_ID } from "../lib/gtm";
+import { GTM_ID } from "../lib/gtag";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -91,24 +91,6 @@ export const Route = createRootRoute({
         href: "/apple-touch-icon.png",
       },
     ],
-    scripts: GTM_ID
-      ? [
-          {
-            async: true,
-            src: `https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`,
-          },
-          {
-            children: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', '${GTM_ID}');
-            `,
-            type: "text/javascript",
-          },
-        ]
-      : [],
   }),
 
   shellComponent: RootDocument,
@@ -119,6 +101,24 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {GTM_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GTM_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body>
         {children}
