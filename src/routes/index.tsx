@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/")({ component: App });
 
 // Google Form URL for registration - replace with actual form URL
-const GOOGLE_FORM_URL = "";
+const GOOGLE_FORM_URL = "https://forms.gle/2RQZ6qTXcpx9MyJw9";
 
 function App() {
   return (
