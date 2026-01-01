@@ -47,50 +47,49 @@ function SaibaMais() {
           <RFECLogo variant="light" className="w-full h-auto" />
         </div>
 
-        {/* Disclaimer - Em construção */}
-        <div className="mb-8 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-start gap-3">
-          <Construction className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="text-yellow-400 font-medium mb-1">
-              Página em construção
-            </p>
-            <p className="text-yellow-300/80 text-sm">
-              Esta página está em desenvolvimento e será atualizada em breve com
-              mais informações.
-            </p>
-          </div>
-        </div>
-
         {/* Content */}
         <div className="space-y-6 text-gray-200">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            RFEC Academy
-          </h1>
+          {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              RFEC Academy
+            </h1> */}
 
           <div className="prose prose-invert max-w-none">
             <p className="text-lg sm:text-xl leading-relaxed">
-              <strong>RFEC Academy</strong> é uma iniciativa de mentoria
-              comunitária focada em ajudar desenvolvedores a crescer através de
-              aprendizado prático, projetos reais e colaboração guiada.
+              RFEC Academy é uma iniciativa de mentoria comunitária voltada a
+              desenvolvedores que buscam direcionamento, clareza de caminho e
+              evolução consistente na área de tecnologia.
             </p>
 
             <p className="text-base sm:text-lg leading-relaxed mt-6">
-              O projeto conecta mentores e mentorados em trilhas de aprendizado
-              estruturadas (Frontend e Backend), combinando conhecimento
-              fundamental com tecnologias modernas como{" "}
-              <strong>
-                HTML, CSS, JavaScript, React, Next.js, Node.js e Express
-              </strong>
-              . Os participantes trabalham juntos para construir aplicações
-              práticas, melhorar suas habilidades técnicas e desenvolver boas
-              práticas de engenharia.
+              O projeto conecta mentores e mentorados em trilhas de
+              desenvolvimento (Frontend e Backend), com foco em orientação
+              prática, troca de experiências e acompanhamento técnico, e não em
+              aulas tradicionais. As tecnologias servem como contexto de
+              aprendizado, enquanto o principal valor está na mentoria, feedback
+              e tomada de decisão técnica ao longo do processo.
             </p>
 
             <p className="text-base sm:text-lg leading-relaxed mt-6">
-              O objetivo do RFEC Academy é criar um ambiente colaborativo onde o
-              aprendizado é contínuo, prático e acessível—capacitando
-              desenvolvedores a evoluir mais rápido e com propósito.
+              A proposta do RFEC Academy é oferecer um ambiente colaborativo
+              onde os participantes evoluem por meio de discussões técnicas,
+              análise de projetos, revisão de conceitos e boas práticas,
+              respeitando o ritmo de cada um e priorizando autonomia,
+              consistência e propósito no crescimento profissional.
             </p>
+          </div>
+
+          {/* Disclaimer - Em construção */}
+          <div className="mt-8 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-start gap-3">
+            <Construction className="w-5 h-5 text-yellow-400 shrink-0 mt-0.5" />
+            <div>
+              <p className="text-yellow-400 font-medium mb-1">
+                Página em construção
+              </p>
+              <p className="text-yellow-300/80 text-sm">
+                Esta página está em desenvolvimento e será atualizada em breve
+                com mais informações.
+              </p>
+            </div>
           </div>
         </div>
       </div>
