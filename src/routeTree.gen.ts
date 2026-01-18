@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SelecionadosRouteImport } from './routes/selecionados'
 import { Route as SaibaMaisRouteImport } from './routes/saiba-mais'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SelecionadosRoute = SelecionadosRouteImport.update({
+  id: '/selecionados',
+  path: '/selecionados',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SaibaMaisRoute = SaibaMaisRouteImport.update({
   id: '/saiba-mais',
   path: '/saiba-mais',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/saiba-mais': typeof SaibaMaisRoute
+  '/selecionados': typeof SelecionadosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/saiba-mais': typeof SaibaMaisRoute
+  '/selecionados': typeof SelecionadosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/saiba-mais': typeof SaibaMaisRoute
+  '/selecionados': typeof SelecionadosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/saiba-mais'
+  fullPaths: '/' | '/saiba-mais' | '/selecionados'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/saiba-mais'
-  id: '__root__' | '/' | '/saiba-mais'
+  to: '/' | '/saiba-mais' | '/selecionados'
+  id: '__root__' | '/' | '/saiba-mais' | '/selecionados'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SaibaMaisRoute: typeof SaibaMaisRoute
+  SelecionadosRoute: typeof SelecionadosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/selecionados': {
+      id: '/selecionados'
+      path: '/selecionados'
+      fullPath: '/selecionados'
+      preLoaderRoute: typeof SelecionadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/saiba-mais': {
       id: '/saiba-mais'
       path: '/saiba-mais'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SaibaMaisRoute: SaibaMaisRoute,
+  SelecionadosRoute: SelecionadosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

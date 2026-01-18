@@ -9,6 +9,7 @@ export const Route = createFileRoute("/")({ component: App });
 
 // Google Form URL for registration - replace with actual form URL
 const GOOGLE_FORM_URL = "https://forms.gle/2RQZ6qTXcpx9MyJw9";
+const ENABLE_SUBSCRIBE = false;
 
 function App() {
   return (
@@ -60,27 +61,44 @@ function App() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="bg-transparent border-[#2B7FFF] text-white hover:bg-[#2B7FFF]/20 hover:text-white hover:border-[#2B7FFF] text-sm sm:text-base font-normal rounded-xl"
-            >
-              <a
-                href={GOOGLE_FORM_URL || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  if (!GOOGLE_FORM_URL) {
-                    e.preventDefault();
-                  }
-                }}
-                className="flex items-center gap-2"
+            {ENABLE_SUBSCRIBE ? (
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="bg-transparent border-[#2B7FFF] text-white hover:bg-[#2B7FFF]/20 hover:text-white hover:border-[#2B7FFF] text-sm sm:text-base font-normal rounded-xl"
               >
-                Inscreva-se
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-            </Button>
+                <a
+                  href={GOOGLE_FORM_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (!GOOGLE_FORM_URL) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className="flex items-center gap-2"
+                >
+                  Inscreva-se
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+              </Button>
+            ) : (
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="bg-transparent border-[#2B7FFF] text-white hover:bg-[#2B7FFF]/20 hover:text-white hover:border-[#2B7FFF] text-sm sm:text-base font-normal rounded-xl"
+              >
+                <Link
+                  to="/selecionados"
+                  className="flex items-center gap-2"
+                >
+                  Ver selecionados
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </Link>
+              </Button>
+            )}
 
             <Button
               asChild
